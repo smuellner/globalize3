@@ -72,7 +72,7 @@ class MigrationTest < Test::Unit::TestCase
   end
 
   test "translation_index_name returns a hashed index name if it's longer than 64 characters" do
-    assert_match /^index_[a-z0-9]{40}$/, MigratedWithMegaUltraSuperLongModelNameWithMoreThenSixtyCharacters.send(:translation_index_name)
+    assert_match /^index_[a-z0-9]{30}$/, MigratedWithMegaUltraSuperLongModelNameWithMoreThenSixtyCharacters.send(:translation_index_name)
   end
 
   test "translation_locale_index_name returns a readable index name if it's not longer than 64 characters" do
@@ -80,7 +80,7 @@ class MigrationTest < Test::Unit::TestCase
   end
 
   test "translation_locale_index_name returns a hashed index name if it's longer than 64 characters" do
-    assert_match /^index_[a-z0-9]{40}$/, MigratedWithMegaUltraSuperLongModelNameWithMoreThenSixtyCharacters.send(:translation_locale_index_name)
+    assert_match /^index_[a-z0-9]{30}$/, MigratedWithMegaUltraSuperLongModelNameWithMoreThenSixtyCharacters.send(:translation_locale_index_name)
   end
 
   test 'create_translation_table! can deal with ultra long table names' do
